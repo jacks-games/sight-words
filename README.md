@@ -86,13 +86,13 @@ All ten on one start page: **[jackbenn.ing](https://jackbenn.ing)** — newest f
 ## 🛠 Built like this
 
 Every game in this organisation is **one self-contained `index.html`** — no build step, no
-framework, no package manager, no analytics, and no network calls beyond its own voice
-clips. That is a deliberate constraint: a game a child depends on should still work in
+framework, no package manager, no analytics, and no network calls beyond its own voice clips (chess also loads its rules engine, chess.js, from
+jsDelivr, and Sight Words its font from Google Fonts). That is a deliberate constraint: a game a child depends on should still work in
 five years, and a parent should be able to read the whole thing in one sitting.
 
-- **Speech** — pre-rendered neural clips through Web Audio, with the Web Speech API as the
-  fallback. It always waits for a tap first, because Chrome and iOS block audio without user
-  activation.
+- **Speech** — pre-rendered clips of the neural `en-GB-SoniaNeural` voice, played through Web Audio,
+  with the Web Speech API as the fallback. The `AudioContext` is created inside the ▶ tap,
+  because iOS refuses to start audio any other way.
 - **Progress** — kept in `localStorage` on the device. Nothing is collected, sent or stored
   anywhere else.
 - **Made for** an iPad mini in either orientation: finger-sized targets, no hover-only
